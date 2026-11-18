@@ -22,136 +22,176 @@ import {
   Palette,
   BarChart3,
   Copy,
+  Maximize2,
+  RotateCw,
 } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2] text-warmnoir-900 selection:bg-pinred-500 selection:text-white relative overflow-hidden">
-      {/* Ambient background glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[650px] bg-gradient-to-b from-[#F2EAE0]/70 via-[#FAF0E6]/40 to-transparent blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute top-[800px] right-[-100px] w-[600px] h-[600px] bg-[#F7E7DF]/40 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute top-[1600px] left-[-100px] w-[600px] h-[600px] bg-[#E8EFE9]/50 rounded-full blur-3xl -z-10 pointer-events-none" />
+    <div className="min-h-screen bg-[#FAF7F2] text-warmnoir-900 selection:bg-pinred-500 selection:text-white relative overflow-hidden font-sans">
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          HERO SECTION: TRAIN OBSERVATION WINDOW (REFERENCE MATCH)
+          ───────────────────────────────────────────────────────────────────────────── */}
+      <section className="relative w-full min-h-[92vh] lg:min-h-screen flex flex-col justify-between bg-warmnoir-950 overflow-hidden shadow-2xl">
+        {/* Photorealistic Background: Train Observation Window View */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('/images/train-window-hero.jpg')` }}
+        />
 
-      {/* Floating Pill Navigation */}
-      <header className="sticky top-5 z-50 max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="backdrop-blur-xl bg-white/80 border border-stone-200/70 shadow-pin rounded-full h-16 px-4 sm:px-6 flex items-center justify-between transition-all">
-          {/* Logo */}
+        {/* Soft vignette & ambient glass overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none" />
+
+        {/* Top Floating Glass Navigation (Railroad.ai Style) */}
+        <header className="relative z-30 w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 flex items-center justify-between">
+          {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-full bg-pinred-500 text-white flex items-center justify-center shadow-md shadow-pinred-500/25 transition-transform group-hover:scale-105">
-              <Pin className="w-4 h-4 fill-white" />
+            <div className="w-9 h-9 rounded-full bg-white/90 backdrop-blur-md text-pinred-500 flex items-center justify-center shadow-lg transition-transform group-hover:scale-105">
+              <Pin className="w-4 h-4 fill-pinred-500" />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-lg tracking-tight leading-none text-warmnoir-900">
-                Store<span className="text-pinred-500">Launch</span>
+              <span className="font-extrabold text-lg tracking-tight leading-none text-white drop-shadow-md">
+                Store<span className="text-white/90">Launch</span>
               </span>
-              <span className="text-[10px] font-serif italic text-stone-500 tracking-wider">
+              <span className="text-[10px] font-serif italic text-white/80 tracking-widest drop-shadow-sm">
                 curated commerce
               </span>
             </div>
           </Link>
 
-          {/* Links */}
-          <nav className="hidden md:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider text-stone-600">
-            <a href="#audit" className="hover:text-pinred-500 transition-colors">7-Point Audit</a>
-            <a href="#channels" className="hover:text-pinred-500 transition-colors">40+ Channels</a>
-            <a href="#moodboard" className="hover:text-pinred-500 transition-colors">Moodboard</a>
-            <a href="#roadmap" className="hover:text-pinred-500 transition-colors">30-Day Plan</a>
-            <a href="#pricing" className="hover:text-pinred-500 transition-colors">Pricing</a>
+          {/* Frosted Glass Navigation Capsule (Direct Reference) */}
+          <nav className="hidden md:flex items-center space-x-7 px-6 py-2.5 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 shadow-lg text-xs font-semibold tracking-wide text-white drop-shadow-sm">
+            <a href="#audit" className="hover:text-white/80 transition-colors">7-Point Audit</a>
+            <a href="#channels" className="hover:text-white/80 transition-colors">40+ Channels</a>
+            <a href="#moodboard" className="hover:text-white/80 transition-colors">Moodboard</a>
+            <a href="#roadmap" className="hover:text-white/80 transition-colors">30-Day Plan</a>
+            <a href="#pricing" className="hover:text-white/80 transition-colors">Pricing</a>
           </nav>
 
-          {/* CTA Buttons */}
+          {/* Right Action Button */}
           <div className="flex items-center gap-3">
             <Link
               href="/dashboard"
-              className="text-xs font-bold uppercase tracking-wider text-stone-700 hover:text-stone-900 px-3 py-2 hidden sm:block"
+              className="text-xs font-bold uppercase tracking-wider text-white/90 hover:text-white px-3 py-2 hidden sm:block drop-shadow-sm"
             >
               Console
             </Link>
             <a
               href="#connect"
-              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 text-xs font-bold tracking-wide uppercase text-white bg-warmnoir-900 hover:bg-pinred-500 rounded-full shadow-sm transition-all duration-300"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold tracking-wide uppercase text-warmnoir-950 bg-white hover:bg-cream-100 rounded-full shadow-lg transition-all duration-200"
             >
-              <span>Connect Store</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>Get Started</span>
+              <ArrowRight className="w-3.5 h-3.5 text-warmnoir-950" />
             </a>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Hero Section */}
-      <section id="connect" className="pt-20 pb-16 sm:pt-28 sm:pb-24 px-4 sm:px-6 max-w-5xl mx-auto text-center">
-        {/* Editorial Pill Tag */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cream-100 border border-stone-200/80 text-warmnoir-800 text-xs font-semibold tracking-wide shadow-xs mb-8">
-          <Sparkles className="w-3.5 h-3.5 text-pinred-500" />
-          <span>The Atelier Launch Engine for Shopify Brands</span>
-        </div>
+        {/* Hero Central Content: Positioned directly inside the center window pane */}
+        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20 text-center flex flex-col items-center justify-center my-auto">
+          {/* Centered Pill Badge (Matches "200+ users onboard" pill from reference) */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-white text-[11px] font-semibold tracking-wider uppercase mb-6 shadow-md drop-shadow-sm">
+            <Sparkles className="w-3 h-3 text-amber-300" />
+            <span>40+ Verified Channels • Free Product Feeds</span>
+          </div>
 
-        {/* Hero Title */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-warmnoir-950 leading-[1.08] max-w-4xl mx-auto">
-          Don&apos;t just open a shop.{' '}
-          <span className="font-serif italic font-normal text-pinred-500 block sm:inline">
-            Curate your arrival.
-          </span>
-        </h1>
+          {/* Primary Hero Headline (Matches Railroad.ai typography & mood) */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-lg leading-[1.08] max-w-3xl">
+            Launch in a Constantly{' '}
+            <span className="font-serif italic font-normal text-white drop-shadow-md">
+              Distracted World
+            </span>
+          </h1>
 
-        <p className="mt-6 text-lg sm:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Audit store readiness in seconds, synchronize with <strong>40+ curated distribution channels</strong> across Google, Pinterest, Meta, Reddit, and wholesale registries, and launch with ethical, high-converting copy.
-        </p>
+          {/* Subtitle with soft frosted glass readability */}
+          <p className="mt-5 text-base sm:text-lg lg:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed drop-shadow-md font-medium">
+            Cut through the noise of empty storefronts and rejected feeds. Audit store readiness in 60 seconds, synchronize across 40+ curated channels, and drive your first 100 sales.
+          </p>
 
-        {/* Shopify Domain Connect Box */}
-        <div className="mt-10 max-w-xl mx-auto">
-          <form
-            action="/api/shopify/auth"
-            method="GET"
-            className="p-2 sm:p-2.5 bg-white rounded-3xl shadow-pin border border-stone-200/80 flex flex-col sm:flex-row gap-2 transition-shadow focus-within:shadow-pin-hover"
-          >
-            <div className="relative flex-grow flex items-center">
-              <div className="pl-4 pr-2 text-stone-400">
-                <Store className="w-5 h-5 text-stone-500" />
-              </div>
-              <input
-                type="text"
-                name="shop"
-                placeholder="your-brand.myshopify.com"
-                required
-                pattern="^[a-zA-Z0-9][a-zA-Z0-9-]*\.myshopify\.com$"
-                title="Format: your-brand.myshopify.com"
-                className="w-full py-3.5 text-stone-900 bg-transparent text-sm placeholder:text-stone-400 focus:outline-none font-medium"
-              />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-pinred-500 hover:bg-pinred-600 active:scale-95 text-white font-bold text-xs uppercase tracking-wider rounded-2.5xl shadow-md shadow-pinred-500/25 transition-all duration-200"
+          {/* Glassmorphic Domain Input Capsule (Matches input bar in reference) */}
+          <div id="connect" className="mt-8 sm:mt-10 w-full max-w-lg">
+            <form
+              action="/api/shopify/auth"
+              method="GET"
+              className="p-1.5 sm:p-2 bg-white/25 backdrop-blur-xl border border-white/40 rounded-full shadow-2xl flex flex-col sm:flex-row gap-2 transition-all focus-within:bg-white/35 focus-within:border-white/60"
             >
-              <span>Scan &amp; Launch</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </form>
+              <div className="relative flex-grow flex items-center">
+                <div className="pl-4 pr-2 text-white/80">
+                  <Store className="w-5 h-5 text-white/90" />
+                </div>
+                <input
+                  type="text"
+                  name="shop"
+                  placeholder="your-store.myshopify.com"
+                  required
+                  pattern="^[a-zA-Z0-9][a-zA-Z0-9-]*\.myshopify\.com$"
+                  title="Format: your-store.myshopify.com"
+                  className="w-full py-3 text-white placeholder:text-white/70 bg-transparent text-sm focus:outline-none font-medium"
+                />
+              </div>
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center gap-1.5 px-6 py-3 bg-white text-warmnoir-950 hover:bg-cream-100 font-bold text-xs uppercase tracking-wider rounded-full shadow-lg transition-transform active:scale-95 flex-shrink-0"
+              >
+                <span>Scan Store</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </form>
 
-          <div className="mt-3.5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-medium text-stone-500">
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-sage-600" /> AES-256-GCM Encrypted
+            {/* Trust Markers */}
+            <div className="mt-3.5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-[11px] font-semibold text-white/90 drop-shadow-sm">
+              <span className="flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" /> AES-256 Encrypted
+              </span>
+              <span className="flex items-center gap-1">
+                <Check className="w-3.5 h-3.5 text-emerald-300" /> Free 7-Point Audit
+              </span>
+              <span className="flex items-center gap-1">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" /> Zero Deceptive Claims
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Window Control Badges (Matches reference expand / refresh widget) */}
+        <div className="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 pb-6 flex items-center justify-between text-white/70 text-xs">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-[11px] font-medium text-white/80 drop-shadow-sm">
+              Live Shopify GraphQL &amp; Supabase Connected
             </span>
-            <span className="flex items-center gap-1.5">
-              <Check className="w-3.5 h-3.5 text-sage-600" /> Free 7-Point Audit
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-terracotta-500" /> Zero Deceptive AI Claims
-            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="#moodboard"
+              className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-md"
+              title="Explore Moodboard"
+            >
+              <Maximize2 className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href="#audit"
+              className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all shadow-md"
+              title="Re-check Audit"
+            >
+              <RotateCw className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* PINTEREST MASONRY SHOWCASE ("The Launch Board") */}
-      <section id="moodboard" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-stone-200">
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          PINTEREST MASONRY SHOWCASE ("The Launch Board")
+          ───────────────────────────────────────────────────────────────────────────── */}
+      <section id="moodboard" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-stone-200">
           <div>
             <div className="text-xs font-bold uppercase tracking-widest text-pinred-500 mb-1.5 flex items-center gap-1.5">
               <Pin className="w-3.5 h-3.5 fill-pinred-500" />
               <span>Live Moodboard Preview</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-warmnoir-900">
-              The anatomy of a <span className="font-serif italic font-normal">flawless</span> Shopify launch.
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-warmnoir-900">
+              The anatomy of a <span className="font-serif italic font-normal text-pinred-500">flawless</span> Shopify launch.
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-stone-500 max-w-md mt-2 md:mt-0 font-medium">
@@ -163,21 +203,14 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Column 1 */}
           <div className="flex flex-col gap-6">
-            {/* PIN 1: Product Showcase Pin */}
+            {/* PIN 1: Product Showcase Pin with Real Lifestyle Photography */}
             <div className="bg-white rounded-4xl p-5 shadow-pin border border-stone-200/70 hover:shadow-pin-hover transition-all duration-300 group">
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] bg-stone-100 mb-4 border border-stone-100 flex items-center justify-center p-6">
-                {/* Simulated aesthetic product display */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/10 via-stone-50 to-orange-100/30" />
-                
-                <div className="relative z-10 text-center flex flex-col items-center">
-                  <div className="w-24 h-44 rounded-full bg-gradient-to-b from-amber-700 via-amber-800 to-amber-950 shadow-2xl border border-amber-600/40 relative flex items-center justify-center">
-                    <div className="absolute top-2 w-8 h-8 rounded-full bg-stone-900 border border-stone-700 shadow-md" />
-                    <div className="w-16 py-4 bg-[#FBF7F0] rounded-sm text-[8px] tracking-widest uppercase font-serif font-bold text-warmnoir-900 shadow-inner">
-                      NORDIC<br />BOTANICAL<br />SERUM
-                    </div>
-                  </div>
-                  <span className="mt-4 text-xs font-serif italic text-stone-600">30ml / Hand-Poured Glass</span>
-                </div>
+              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] bg-stone-100 mb-4 border border-stone-100">
+                <img
+                  src="/images/green-hills.jpg"
+                  alt="Nordic Botanical Sourcing"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
 
                 {/* Pin hover pill button */}
                 <div className="absolute top-3.5 right-3.5 opacity-90 group-hover:opacity-100 transition-opacity">
@@ -365,30 +398,39 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* PIN 6: Pinterest Commerce Tag */}
-            <div className="bg-[#FAF7F2] rounded-4xl p-5 shadow-pin border border-stone-200/80 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-pinred-500 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                <Pin className="w-6 h-6 fill-white" />
-              </div>
-              <div>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-warmnoir-900">Rich Pins &amp; Catalogs</h4>
-                <p className="text-xs text-stone-600 mt-0.5">
-                  Automatic metadata syncing for dynamic product pricing, stock availability, and Pinterest direct checkout.
-                </p>
+            {/* PIN 6: Pinterest & Observation Window Editorial Card */}
+            <div className="relative rounded-4xl overflow-hidden shadow-pin border border-stone-200/80 group aspect-[4/3] bg-stone-900">
+              <img
+                src="/images/train-window-side.jpg"
+                alt="Luxury train observation car"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end text-white">
+                <div className="flex items-center gap-2 mb-1">
+                  <Pin className="w-4 h-4 text-pinred-500 fill-pinred-500" />
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-white/90">
+                    The Atelier Journey
+                  </span>
+                </div>
+                <h4 className="font-bold text-sm text-white leading-snug">
+                  Curate your arrival on 40+ global channels.
+                </h4>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7-POINT AUDIT SECTION */}
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          7-POINT AUDIT SECTION
+          ───────────────────────────────────────────────────────────────────────────── */}
       <section id="audit" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-xs font-bold uppercase tracking-widest text-pinred-500">
             Automated Diagnostics
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-warmnoir-900 tracking-tight mt-2">
-            The 7-Point <span className="font-serif italic font-normal">Pre-Flight</span> Audit
+            The 7-Point <span className="font-serif italic font-normal text-pinred-500">Pre-Flight</span> Audit
           </h2>
           <p className="mt-4 text-stone-600 text-sm sm:text-base">
             Google Merchant Center, Pinterest, and Meta Shop suspend 38% of new merchant feeds within 48 hours. StoreLaunch stops rejections before they happen.
@@ -458,7 +500,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 40+ CURATED CHANNELS BREAKDOWN */}
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          40+ CURATED CHANNELS BREAKDOWN
+          ───────────────────────────────────────────────────────────────────────────── */}
       <section id="channels" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-xs font-bold uppercase tracking-widest text-pinred-500">
@@ -567,7 +611,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 30-DAY LAUNCH PLAN ROADMAP */}
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          30-DAY LAUNCH PLAN ROADMAP
+          ───────────────────────────────────────────────────────────────────────────── */}
       <section id="roadmap" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-pinred-500">
@@ -652,7 +698,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PRICING SECTION */}
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          PRICING SECTION
+          ───────────────────────────────────────────────────────────────────────────── */}
       <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-stone-200">
         <div className="text-center max-w-xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-pinred-500">
@@ -759,7 +807,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FINAL CALL TO ACTION CARD */}
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          FINAL CALL TO ACTION CARD
+          ───────────────────────────────────────────────────────────────────────────── */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="bg-gradient-to-br from-[#1C1917] via-[#241F1D] to-[#141211] text-white rounded-5xl p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-80 h-80 bg-pinred-500/20 rounded-full blur-3xl pointer-events-none" />
@@ -802,7 +852,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* ─────────────────────────────────────────────────────────────────────────────
+          FOOTER
+          ───────────────────────────────────────────────────────────────────────────── */}
       <footer className="py-12 border-t border-stone-200 text-stone-500 text-xs">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
